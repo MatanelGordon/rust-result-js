@@ -3,19 +3,18 @@ import {Err, Ok} from "./results";
 import type {ComposerFunction} from "./composers";
 import {composeResult} from "./composers";
 
-
 const f = (): Result<number, string> => {
     const x = 3;
 
-    if(x > 5){
+    if (x > 5) {
         return Ok(x)
     }
     return Err("Blah Blah");
 }
 
-const fn:ComposerFunction<number, string> = (Ok, Err) => {
+const fn: ComposerFunction<number, string> = (Ok, Err) => {
     const x = 6;
-    if(x % 2 === 1){
+    if (x % 2 === 1) {
         Ok(x)
     }
     Err("even number");
