@@ -1,2 +1,2 @@
-export {composeResult} from "./composeResult";
-export type {ComposerFunction} from './composeResult';
+export {createResult} from "./createResult";
+export type {ResultFunction} from './createResult';
