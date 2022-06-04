@@ -1,10 +1,13 @@
 {
   "name": "rust-result-js",
   "version": "1.0.0",
-  "main": "index.js",
   "repository": "https://github.com/MatanelGordon/rust-result-js.git",
-  "author": "Matanel Mac <mmgordon.matanel@gmail.com>",
+  "description": "Implementation of Rust's Result object used for error handling",
+  "author": "Matanel Gordon",
   "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["./dist"],
   "scripts": {
     "dev": "nodemon src/index.ts",
     "debug": "ts-node src/index.ts",
