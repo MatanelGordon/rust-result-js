@@ -39,7 +39,4 @@ export class OkResult<T,K> extends Result<T, K>{
     unwrapErr():K{
         throw this.createPanicError('unwrapErr: called unwrapErr in \'Ok\'');
     }
-
-
-
 }
