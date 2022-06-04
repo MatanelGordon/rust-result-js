@@ -1,4 +1,4 @@
-import type {Result} from "./results/Result";
+import type {Result} from "./results";
 import {Err, Ok} from "./results";
 
 
