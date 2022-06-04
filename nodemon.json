@@ -1,0 +1,7 @@
+{
+  "ignore": ["node_modules"],
+  "ext": "ts,json",
+  "execMap": {
+    "ts": "ts-node"
+  }
+}
