@@ -7,12 +7,14 @@
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["./dist"],
+  "files": [
+    "./dist"
+  ],
   "scripts": {
     "dev": "nodemon src/index.ts",
     "debug": "ts-node src/index.ts",
     "build": "tsc -p ./tsconfig.json",
-    "lint": "eslint src/**/*"
+    "lint": "eslint src/**/*.ts --fix"
   },
   "devDependencies": {
     "@types/node": "^17.0.36",
@@ -21,6 +23,7 @@
     "concurrently": "^7.2.1",
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "nodemon": "^2.0.16",
     "prettier": "^2.6.2",
     "ts-node": "^10.8.0",
