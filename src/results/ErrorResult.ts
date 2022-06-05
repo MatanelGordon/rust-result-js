@@ -1,9 +1,9 @@
-import {Result} from "./Result";
+import { Result } from './Result';
 
-export class ErrorResult<T,K> extends Result<T, K>{
+export class ErrorResult<T, K> extends Result<T, K> {
     private readonly errorValue: K;
 
-    constructor(err:K) {
+    constructor(err: K) {
         super();
         this.errorValue = err;
     }
@@ -17,11 +17,11 @@ export class ErrorResult<T,K> extends Result<T, K>{
     }
 
     map<T1>(): Result<T1, K> {
-        return new ErrorResult<T1,K>(this.errorValue);
+        return new ErrorResult<T1, K>(this.errorValue);
     }
 
     mapErr<K1>(fn: (err: K) => K1): Result<T, K1> {
-        return new ErrorResult<T,K1>(fn(this.errorValue));
+        return new ErrorResult<T, K1>(fn(this.errorValue));
     }
 
     unwrap(): T {
@@ -39,5 +39,4 @@ export class ErrorResult<T,K> extends Result<T, K>{
     unwrapErr(): K {
         return this.errorValue;
     }
-
 }

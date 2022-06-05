@@ -1,2 +1,2 @@
-export {createResult} from "./createResult";
-export type {ResultFunction} from './createResult';
+export { createResult } from './createResult';
+export type { ResultFunction } from './createResult';
