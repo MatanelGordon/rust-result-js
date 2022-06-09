@@ -1,6 +1,6 @@
 {
   "name": "rust-result-js",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "repository": "https://github.com/MatanelGordon/rust-result-js.git",
   "description": "Implementation of Rust's Result object used for error handling",
   "author": "Matanel Gordon",
@@ -8,7 +8,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "./dist"
+    "./dist/**/*"
   ],
   "scripts": {
     "dev": "nodemon src/index.ts",
