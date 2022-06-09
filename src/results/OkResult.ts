@@ -1,4 +1,5 @@
 import { Result } from './Result';
+import _ from "lodash";
 
 export class OkResult<T, K> extends Result<T, K> {
     private readonly value: T;
@@ -8,6 +9,14 @@ export class OkResult<T, K> extends Result<T, K> {
         this.value = val;
     }
 
+    contains(value: T): boolean {
+        return _.isEqual(value, this.value);
+    }
+
+    containsErr(): boolean {
+        return false;
+    }
+    
     isOk(): boolean {
         return true;
     }

@@ -1,4 +1,5 @@
 import { Result } from './Result';
+import _ from "lodash";
 
 export class ErrorResult<T, K> extends Result<T, K> {
     private readonly errorValue: K;
@@ -38,5 +39,13 @@ export class ErrorResult<T, K> extends Result<T, K> {
 
     unwrapErr(): K {
         return this.errorValue;
+    }
+
+    contains(): boolean {
+        return false;
+    }
+
+    containsErr(errValue: K): boolean {
+        return _.isEqual(errValue, this.errorValue);
     }
 }
