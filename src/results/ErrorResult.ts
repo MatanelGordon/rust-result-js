@@ -1,5 +1,5 @@
-import { Result } from './Result';
 import _ from "lodash";
+import { Result } from './Result';
 
 export class ErrorResult<T, K> extends Result<T, K> {
     private readonly errorValue: K;
