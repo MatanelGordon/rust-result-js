@@ -7,14 +7,12 @@
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "./dist/**/*"
-  ],
   "scripts": {
     "dev": "nodemon src/index.ts",
     "debug": "ts-node src/index.ts",
     "build": "tsc -p ./tsconfig.json",
-    "lint": "eslint src/**/*.ts --fix"
+    "lint": "eslint src/**/*.ts --fix",
+    "prepublish": "yarn build"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.182",
