@@ -24,7 +24,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "importsNotUsedAsValues": "error",
-    "sourceMap": true,
     "declaration": true
   },
   "include": [
