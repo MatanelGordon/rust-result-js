@@ -14,6 +14,14 @@
     "lint": "eslint src/**/*.ts --fix",
     "prepublish": "yarn build"
   },
+  "keywords": [
+    "rust-js",
+    "result-js",
+    "rust-result",
+    "rust-result-js",
+    "error-js",
+    "error"
+  ],
   "devDependencies": {
     "@types/lodash": "^4.14.182",
     "@types/node": "^17.0.36",
