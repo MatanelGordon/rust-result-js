@@ -1,6 +1,11 @@
 # rust-result-js
 rust Result object implemented in javascript.
 
+#Table of Contents
+****
+* [Installation](#installation)
+* [Usage](#usage)
+* [Available Functions](#available-functions)
 ## Installation
 ****
 via npm:
@@ -73,3 +78,14 @@ const fetchSomething = async (): Result<string[], string> => {
 }
 ```
 
+## Available functions
+****
+* [`expect`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect)
+* [`expectErr`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect_err)
+* [`unwrap`](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap)
+* [`unwrapErr`](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap_err)
+* [`map`](https://doc.rust-lang.org/std/result/enum.Result.html#method.map)
+* [`mapErr`](https://doc.rust-lang.org/std/result/enum.Result.html#method.map_err)
+* [`mapOr`](https://doc.rust-lang.org/std/result/enum.Result.html#method.map_or)
+* [`contains`](https://doc.rust-lang.org/std/result/enum.Result.html#method.contains)
+* [`containsErr`](https://doc.rust-lang.org/std/result/enum.Result.html#method.contains_err)
