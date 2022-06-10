@@ -31,7 +31,7 @@ examples:
  - **unwrap_err** = `unwrapErr` in js
  - etc...
  
-Unlike rust, in javascript in order to return a value you must use the `return` keyword.
+Unlike rust, in javascript, in order to return a value you must use the `return` keyword.
 ```javascript
 import {Ok,Err} from 'rust-result-js';
 
@@ -50,7 +50,7 @@ const someInput = toNumber("not a number").expect("failed parsing someInput");
 ```
 
 ### Using `createResult`
-For those who hate using `return`:
+For those who **HATE** using `return`:
 ```javascript
 import {createResult} from 'rust-result-js';
 
@@ -86,16 +86,64 @@ const fetchSomething = async (): Result<string[], string> => {
 
 ## Available functions
 ****
-* [`expect`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect)
-* [`expectErr`](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect_err)
-* [`unwrap`](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap)
-* [`unwrapErr`](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap_err)
-* [`map`](https://doc.rust-lang.org/std/result/enum.Result.html#method.map)
-* [`mapErr`](https://doc.rust-lang.org/std/result/enum.Result.html#method.map_err)
-* [`mapOr`](https://doc.rust-lang.org/std/result/enum.Result.html#method.map_or)
-* [`contains`](https://doc.rust-lang.org/std/result/enum.Result.html#method.contains)
-* [`containsErr`](https://doc.rust-lang.org/std/result/enum.Result.html#method.contains_err)
+**NOTE**: `available functions` API is identical to rust's original implementation. 
+
+This is what implemented so far in this library:
+* `isOk`   [rust docs](https://doc.rust-lang.org/std/result/enum.Result.html#method.is_ok)
+* `isErr`  [rust docs](https://doc.rust-lang.org/std/result/enum.Result.html#method.is_err)
+* `expect` [rust docs](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect)
+* `expectErr` [rust docs](https://doc.rust-lang.org/std/result/enum.Result.html#method.expect_err)
+* `unwrap` [rust docs](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap)
+* `unwrapErr` [rust docs](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap_err)
+* `map` [rust docs](https://doc.rust-lang.org/std/result/enum.Result.html#method.map)
+* `mapErr` [rust docs](https://doc.rust-lang.org/std/result/enum.Result.html#method.map_err)
+* `mapOr` [rust docs](https://doc.rust-lang.org/std/result/enum.Result.html#method.map_or)
+* `contains` [rust docs](https://doc.rust-lang.org/std/result/enum.Result.html#method.contains)
+* `containsErr` [rust docs](https://doc.rust-lang.org/std/result/enum.Result.html#method.contains_err)
 * And more to come...
+
+# API References
+****   
+## expect
+```typescript
+function expect(msg: string): T {/*...*/}
+```
+where T - type of `Ok` value
+
+**Returns** the contained `Ok` value.
+If `Err`, throws error with `msg` including the errorValue.
+
+```javascript
+const x = Err("emergency failure");
+const val = x.expect("testing expect");
+//output: panics with expect() - testing expect : emergency failure.
+```
+
+Expected Example:
+```javascript
+const x = Ok(6).expect("error with x"); // x = 6
+console.log(x) //output: 6
+```
+## expectErr
+```typescript
+function expectErr(msg: string): K {/*...*/}
+```
+where K - type of `Err` value
+
+**Returns** the contained `Err` value.
+If `Ok`, throws error with `msg` including Ok's value
+
+```javascript
+const x = Ok(6).expectErr("error with x");
+//output: [Error] panics with expectErr() : error with x : 6 
+```
+
+Expected Example:
+```javascript
+const x = Err("my error value").expectErr("testing expect");
+console.log(x) // output: "my error value"
+```
+
 # Contributions
 ****
 First, if you read this far you deserve congratulations. 
