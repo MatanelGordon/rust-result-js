@@ -1,6 +1,6 @@
 {
   "name": "rust-result-js",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "repository": "https://github.com/MatanelGordon/rust-result-js.git",
   "description": "Implementation of Rust's Result object used for error handling",
   "author": "Matanel Gordon",
