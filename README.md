@@ -31,6 +31,8 @@ examples:
  - **unwrap_err** = `unwrapErr` in js
  - etc...
  
+
+### Example 
 Unlike rust, in javascript, in order to return a value you must use the `return` keyword.
 ```javascript
 import {Ok,Err} from 'rust-result-js';
