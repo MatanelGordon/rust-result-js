@@ -24,7 +24,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "importsNotUsedAsValues": "error",
-    "declaration": true
+    "declaration": true,
+    "removeComments": false
   },
   "include": [
     "src/**/*"
