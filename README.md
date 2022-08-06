@@ -10,16 +10,22 @@ rust Result object implemented in javascript.
 
 ## Installation
 
-via npm:
+via npm⚡:
 
 ```bash
-npm i rust-result-js
+$ npm i rust-result-js
 ```
 
-or yarn:
+or yarn⚡:
 
 ```bash
-yarn add rust-result-js
+$ yarn add rust-result-js
+```
+
+or pnpm⚡:
+
+```bash
+$ pnpm add rust-result-js
 ```
 
 ## Usage
