@@ -30,7 +30,7 @@ export class OkResult<T, K> extends Result<T, K> {
     }
 
     expectErr(msg: string): K {
-        throw this.createPanicError(msg);
+        throw this.createPanicError(`expectErr() : ${msg} - ${this.value}`);
     }
 
     map<T1>(fn: (val: T) => T1): Result<T1, K> {
