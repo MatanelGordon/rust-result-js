@@ -1,6 +1,6 @@
-import { OkResult } from './OkResult';
 import { ErrorResult } from './ErrorResult';
-import {Result} from "./Result";
+import { OkResult } from './OkResult';
+import type {Result} from "./Result";
 
 export type { Result };
 export const Ok = <T, K>(val: T):Result<T, K> => new OkResult<T, K>(val);
