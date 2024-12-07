@@ -1,4 +1,4 @@
-import { configs as eslintRecommended } from '@eslint/js';
+import ejs from '@eslint/js';
 import prettierConfig from 'eslint-config-prettier';
 import typescriptParser from '@typescript-eslint/parser';
 import typescriptPlugin from '@typescript-eslint/eslint-plugin';
@@ -15,9 +15,13 @@ export default [
       '@typescript-eslint': typescriptPlugin,
     },
     rules: {
-      ...eslintRecommended.recommended.rules,
+      ...ejs.configs.recommended.rules,
       ...typescriptPlugin.configs.recommended.rules,
       ...prettierConfig.rules,
     },
+    ignores: [
+      "dist",
+      "node_modules"
+    ]
   },
 ];
