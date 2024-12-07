@@ -29,6 +29,12 @@ jobs:
         echo "PACKAGE_VERSION=$VERSION" >> $GITHUB_ENV
         echo "Extracted version: $VERSION"
 
+    - name: Create .npmrc for token authentication
+      uses: healthplace/npmrc-registry-login-action@v1.0
+      with:
+        registry: 'https://registry.npmjs.org'
+        auth-token: ${{secrets.NPM_TOKEN}}
+
     - name: Publish to npm
       run: npm publish
       env:
