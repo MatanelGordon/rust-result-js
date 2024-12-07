@@ -1,0 +1,48 @@
+name: Publish to npm and yarn
+
+on:
+  pull_request:
+    branches: ["master"]
+    types: [closed]
+
+jobs:
+  publish:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22' # or your preferred Node.js version
+        registry-url: 'https://registry.npmjs.org/'
+
+    - name: Install yarn
+      run: npm i -g yarn
+
+    - name: Install dependencies
+      run: yarn install
+
+    - name: Extract branch name
+      id: extract-version
+      run: |
+        echo "BRANCH_VERSION=$(echo '${{ github.event.pull_request.head.ref }}')" >> $GITHUB_ENV
+        echo "Branch version is: $BRANCH_VERSION"
+
+    - name: Update package.json version
+      run: |
+        jq ".version = \"$BRANCH_VERSION\"" package.json > tmp.json && mv tmp.json package.json
+
+    - name: Publish to npm
+      run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    - name: Publish to Yarn (Optional)
+      run: |
+        yarn publish --new-version ${{ env.BRANCH_VERSION }}
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
