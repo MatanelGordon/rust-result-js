@@ -11,16 +11,18 @@ jobs:
 
     steps:
     - name: Check out repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Set up Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: '18.x' # or your preferred Node.js version
+        node-version: '22.x' # or your preferred Node.js version
         registry-url: 'https://registry.npmjs.org/'
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - name: Install dependencies
-      run: npm install
+      run: npm i -g npm@10.8.1 && npm install
 
     - name: Extract version from package.json
       id: extract-version
@@ -28,20 +30,10 @@ jobs:
         VERSION=$(node -p "require('./package.json').version")
         echo "PACKAGE_VERSION=$VERSION" >> $GITHUB_ENV
         echo "Extracted version: $VERSION"
-
-    - name: Create .npmrc for token authentication
-      uses: healthplace/npmrc-registry-login-action@v1.0
-      with:
-        registry: 'https://registry.npmjs.org'
-        auth-token: ${{ secrets.NPM_TOKEN }}
-
+        
     - name: Publish to npm
       run: npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - name: Publish to Yarn (Optional)
       run: |
         yarn publish --new-version ${{ env.PACKAGE_VERSION }}
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
