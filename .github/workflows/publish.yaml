@@ -30,7 +30,7 @@ jobs:
         VERSION=$(node -p "require('./package.json').version")
         echo "PACKAGE_VERSION=$VERSION" >> $GITHUB_ENV
         echo "Extracted version: $VERSION"
-
+        
     - name: Publish to npm
       run: npm publish
 
