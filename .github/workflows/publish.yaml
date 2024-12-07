@@ -16,7 +16,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '22' # or your preferred Node.js version
+        node-version: '18.x' # or your preferred Node.js version
         registry-url: 'https://registry.npmjs.org/'
 
     - name: Install dependencies
@@ -33,7 +33,7 @@ jobs:
       uses: healthplace/npmrc-registry-login-action@v1.0
       with:
         registry: 'https://registry.npmjs.org'
-        auth-token: ${{secrets.NPM_TOKEN}}
+        auth-token: ${{ secrets.NPM_TOKEN }}
 
     - name: Publish to npm
       run: npm publish
